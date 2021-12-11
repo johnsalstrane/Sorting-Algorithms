@@ -1,7 +1,3 @@
-void SelectionSort(int array[], int arraySize);
-void BubbleSort(int array[], int arraySize);
-void MergeSort(int array[], int l, int r);
-void Merge(int array[], int left, int mid, int right);
 
 
 void SelectionSort(int array[], int arraySize)
@@ -49,20 +45,6 @@ void BubbleSort(int array[], int arraySize)
 
 }
 
-//int array1[10] = { 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 };
-void MergeSort(int array[], int l, int r)
-{
-    if (l < r)
-    {
-        int m = (l + r) / 2;
-
-        MergeSort(array, l, m);
-        MergeSort(array, m + 1, r);
-
-        Merge(array, l, m, r);
-    }
-}
-
 void Merge(int array[], int const left, int const mid, int const right)
 {
     auto const n1 = mid - left + 1;
@@ -104,5 +86,18 @@ void Merge(int array[], int const left, int const mid, int const right)
         array[indexOfMergedArray] = rightArray[indexOfSubArrayTwo];
         indexOfSubArrayTwo++;
         indexOfMergedArray++;
+    }
+}
+
+void MergeSort(int array[], int l, int r)
+{
+    if (l < r)
+    {
+        int m = (l + r) / 2;
+
+        MergeSort(array, l, m);
+        MergeSort(array, m + 1, r);
+
+        Merge(array, l, m, r);
     }
 }

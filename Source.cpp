@@ -1,9 +1,10 @@
 
 #include <iostream>
 #include "SortingAlgorithms.h"
-
+#include "SearchingAlgorithms.h"
 
 void DisplayArray(int array[], int arraySize);
+int BinarySearch(int array[], int left, int right, int x);
 
 int main(void)
 {
@@ -26,9 +27,15 @@ int main(void)
     std::cout << std::endl;
     MergeSort(array2, 0, array2size-1);
     DisplayArray(array2, array2size);
+    std::cout << std::endl;
+    std::cout << std::endl;
 
-
+    int n = sizeof(array2) / sizeof(array2[0]);
+    int searchFor = 58;
+    int result = BinarySearch(array2, 0, n-1, searchFor);
+    std::cout << result << std::endl;
 }
+
 
 void DisplayArray(int array[], int arraySize)
 {
