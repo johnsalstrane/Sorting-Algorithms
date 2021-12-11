@@ -3,6 +3,8 @@
 
 void SelectionSort(int array[], int arraySize);
 void DisplayArray(int array[], int arraySize);
+void BubbleSort(int array[], int arraySize);
+
 
 int main(void)
 {
@@ -15,7 +17,7 @@ int main(void)
     DisplayArray(array1, array1size);
     std::cout << std::endl;
 
-    SelectionSort(array1, array1size);
+    BubbleSort(array1, array1size);
     DisplayArray(array1, array1size);
     std::cout << std::endl;
     std::cout << std::endl;
@@ -23,7 +25,7 @@ int main(void)
 
     DisplayArray(array2, array2size);
     std::cout << std::endl;
-    SelectionSort(array2, array2size);
+    BubbleSort(array2, array2size);
     DisplayArray(array2, array2size);
 
 
@@ -55,8 +57,26 @@ void SelectionSort(int array[], int arraySize)
 
 void BubbleSort(int array[], int arraySize)
 {
-
+    int* largest = &array[0];
+    bool switched;
+    for (size_t i = 0; i < arraySize; i++)
+    {
+        switched = false;
+        for (size_t j = 0; j < arraySize - 1; j++)
+        {
+            if (array[j] > array[j + 1])
+            {
+                int temp = array[j + 1];
+                array[j + 1] = array[j];
+                array[j] = temp;
+                switched = true;
+            }
+        }
+    }
+    
 }
+
+
 
 void DisplayArray(int array[], int arraySize)
 {
